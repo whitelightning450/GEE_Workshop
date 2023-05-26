@@ -5,6 +5,5 @@ format: jb-book
 root: intro
 chapters:
 - file: markdown
-- file: DataPreparationPredictions
 - file: notebooks
 - file: markdown-notebooks
