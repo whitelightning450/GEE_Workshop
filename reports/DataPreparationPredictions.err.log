@@ -1,0 +1,96 @@
+Traceback (most recent call last):
+  File "C:\Users\rjohnson18\Anaconda3\lib\site-packages\jupyter_cache\executors\utils.py", line 58, in single_nb_execution
+    executenb(
+  File "C:\Users\rjohnson18\Anaconda3\lib\site-packages\nbclient\client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "C:\Users\rjohnson18\Anaconda3\lib\site-packages\nbclient\util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "C:\Users\rjohnson18\Anaconda3\lib\site-packages\nbclient\util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "C:\Users\rjohnson18\Anaconda3\lib\asyncio\base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "C:\Users\rjohnson18\Anaconda3\lib\site-packages\nbclient\client.py", line 663, in async_execute
+    await self.async_execute_cell(
+  File "C:\Users\rjohnson18\Anaconda3\lib\site-packages\nbclient\client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "C:\Users\rjohnson18\Anaconda3\lib\site-packages\nbclient\client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+#https://developers.google.com/earth-engine/guides/python_install
+#   https://developers.google.com/earth-engine/tutorials/community/intro-to-python-api
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+from scipy import optimize
+%matplotlib inline
+
+
+#EE needs to go last
+import ee
+ee.Authenticate()
+ee.Initialize()
+------------------
+
+[1;31m---------------------------------------------------------------------------[0m
+[1;31mStdinNotImplementedError[0m                  Traceback (most recent call last)
+Input [1;32mIn [1][0m, in [0;36m<cell line: 12>[1;34m()[0m
+[0;32m     10[0m [38;5;66;03m#EE needs to go last[39;00m
+[0;32m     11[0m [38;5;28;01mimport[39;00m [38;5;21;01mee[39;00m
+[1;32m---> 12[0m [43mee[49m[38;5;241;43m.[39;49m[43mAuthenticate[49m[43m([49m[43m)[49m
+[0;32m     13[0m ee[38;5;241m.[39mInitialize()
+
+File [1;32m~\Anaconda3\lib\site-packages\ee\__init__.py:103[0m, in [0;36mAuthenticate[1;34m(authorization_code, quiet, code_verifier, auth_mode, scopes)[0m
+[0;32m     77[0m [38;5;28;01mdef[39;00m [38;5;21mAuthenticate[39m(
+[0;32m     78[0m     authorization_code[38;5;241m=[39m[38;5;28;01mNone[39;00m,
+[0;32m     79[0m     quiet[38;5;241m=[39m[38;5;28;01mNone[39;00m,
+[0;32m     80[0m     code_verifier[38;5;241m=[39m[38;5;28;01mNone[39;00m,
+[0;32m     81[0m     auth_mode[38;5;241m=[39m[38;5;28;01mNone[39;00m,
+[0;32m     82[0m     scopes[38;5;241m=[39m[38;5;28;01mNone[39;00m):
+[0;32m     83[0m   [38;5;124;03m"""Prompts the user to authorize access to Earth Engine via OAuth2.[39;00m
+[0;32m     84[0m 
+[0;32m     85[0m [38;5;124;03m  Args:[39;00m
+[1;32m   (...)[0m
+[0;32m    101[0m [38;5;124;03m     (auth_url, code_verifier) when called with quiet='init_only'[39;00m
+[0;32m    102[0m [38;5;124;03m  """[39;00m
+[1;32m--> 103[0m   [38;5;28;01mreturn[39;00m [43moauth[49m[38;5;241;43m.[39;49m[43mauthenticate[49m[43m([49m[43mauthorization_code[49m[43m,[49m[43m [49m[43mquiet[49m[43m,[49m[43m [49m[43mcode_verifier[49m[43m,[49m[43m [49m[43mauth_mode[49m[43m,[49m
+[0;32m    104[0m [43m                            [49m[43mscopes[49m[43m)[49m
+
+File [1;32m~\Anaconda3\lib\site-packages\ee\oauth.py:408[0m, in [0;36mauthenticate[1;34m(cli_authorization_code, quiet, cli_code_verifier, auth_mode, scopes)[0m
+[0;32m    405[0m [38;5;28;01mif[39;00m flow[38;5;241m.[39mdisplay_instructions(quiet):
+[0;32m    406[0m   _open_new_browser(flow[38;5;241m.[39mauth_url)
+[1;32m--> 408[0m [43mflow[49m[38;5;241;43m.[39;49m[43msave_code[49m[43m([49m[43m)[49m
+
+File [1;32m~\Anaconda3\lib\site-packages\ee\oauth.py:451[0m, in [0;36mFlow.save_code[1;34m(self, code)[0m
+[0;32m    449[0m   redirect_uri [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39mserver[38;5;241m.[39murl
+[0;32m    450[0m   code [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39mserver[38;5;241m.[39mfetch_code()  [38;5;66;03m# Waits for oauth callback[39;00m
+[1;32m--> 451[0m [43m_obtain_and_write_token[49m[43m([49m[43mcode[49m[43m,[49m[43m [49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mcode_verifier[49m[43m,[49m[43m [49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mscopes[49m[43m,[49m[43m [49m[43mredirect_uri[49m[43m)[49m
+
+File [1;32m~\Anaconda3\lib\site-packages\ee\oauth.py:179[0m, in [0;36m_obtain_and_write_token[1;34m(auth_code, code_verifier, scopes, redirect_uri)[0m
+[0;32m    177[0m   client_info[[38;5;124m'[39m[38;5;124mredirect_uri[39m[38;5;124m'[39m] [38;5;241m=[39m redirect_uri
+[0;32m    178[0m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m auth_code:
+[1;32m--> 179[0m   auth_code [38;5;241m=[39m [38;5;28;43minput[39;49m[43m([49m[38;5;124;43m'[39;49m[38;5;124;43mEnter verification code: [39;49m[38;5;124;43m'[39;49m[43m)[49m
+[0;32m    180[0m [38;5;28;01massert[39;00m [38;5;28misinstance[39m(auth_code, [38;5;28mstr[39m)
+[0;32m    181[0m scopes [38;5;241m=[39m scopes [38;5;129;01mor[39;00m SCOPES
+
+File [1;32m~\AppData\Roaming\Python\Python39\site-packages\ipykernel\kernelbase.py:1174[0m, in [0;36mKernel.raw_input[1;34m(self, prompt)[0m
+[0;32m   1167[0m [38;5;124;03m"""Forward raw_input to frontends[39;00m
+[0;32m   1168[0m 
+[0;32m   1169[0m [38;5;124;03mRaises[39;00m
+[0;32m   1170[0m [38;5;124;03m------[39;00m
+[0;32m   1171[0m [38;5;124;03mStdinNotImplementedError if active frontend doesn't support stdin.[39;00m
+[0;32m   1172[0m [38;5;124;03m"""[39;00m
+[0;32m   1173[0m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m [38;5;28mself[39m[38;5;241m.[39m_allow_stdin:
+[1;32m-> 1174[0m     [38;5;28;01mraise[39;00m StdinNotImplementedError(
+[0;32m   1175[0m         [38;5;124m"[39m[38;5;124mraw_input was called, but this frontend does not support input requests.[39m[38;5;124m"[39m
+[0;32m   1176[0m     )
+[0;32m   1177[0m [38;5;28;01mreturn[39;00m [38;5;28mself[39m[38;5;241m.[39m_input_request(
+[0;32m   1178[0m     [38;5;28mstr[39m(prompt),
+[0;32m   1179[0m     [38;5;28mself[39m[38;5;241m.[39m_parent_ident[[38;5;124m"[39m[38;5;124mshell[39m[38;5;124m"[39m],
+[0;32m   1180[0m     [38;5;28mself[39m[38;5;241m.[39mget_parent([38;5;124m"[39m[38;5;124mshell[39m[38;5;124m"[39m),
+[0;32m   1181[0m     password[38;5;241m=[39m[38;5;28;01mFalse[39;00m,
+[0;32m   1182[0m )
+
+[1;31mStdinNotImplementedError[0m: raw_input was called, but this frontend does not support input requests.
+StdinNotImplementedError: raw_input was called, but this frontend does not support input requests.
+
