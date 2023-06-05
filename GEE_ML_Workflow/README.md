@@ -76,6 +76,7 @@ Option #1
     pip install pandas==1.4.2 numpy==1.21.5 hydrotools==2.2.2 scipy==1.7.3 datetime matplotlib==3.5.1 dataretrieval streamstats progressbar scikit-learn joblib hydroeval xgboost
 
 Option #2 - note, you must be in the correct working directory.
+
     pip install -r requirements.txt
 
 Now that we have install all of the necessary dependencies its time to get coding!
