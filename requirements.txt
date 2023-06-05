@@ -1,5 +1,4 @@
 dataretrieval==1.0.4
-earthengine-api @ file:///home/conda/feedstock_root/build_artifacts/earthengine-api_1685643863562/work
 hydroeval==0.1.0
 hydrotools==2.2.2
 ipykernel==6.15.1
