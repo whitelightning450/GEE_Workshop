@@ -8,6 +8,7 @@ import dataretrieval.nwis as nwis
 ##https://streamstats-python.readthedocs.io/en/latest/gallery_vignettes/plot_get_characteristics.html
 import streamstats
 import pandas as pd    
+import numpy as np
 from progressbar import ProgressBar
 
 
