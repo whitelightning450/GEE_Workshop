@@ -76,6 +76,7 @@ Enter the following code block in your Anaconda Command Prompt to get the requir
 
 
 Now that we have install all of the necessary dependencies its time to get coding!
+[Chapter 1](./GEE_Workshop_CH1.ipynb)
 
 
 
