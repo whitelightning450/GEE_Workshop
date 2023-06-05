@@ -12,4 +12,4 @@ Participants will learn how to:
 *  **Machine Learning.** Build and train a machine learning model using GEE provided remote sensing data to predict streamflow.
 * **Model Evaluation.** Explore and understand different methods and metrics for evaluating the performance of a ML hydrological model. 
 
-Please click on the [**GEE_ML_Workflow**](./GEE_ML_Workflow/README.md) folder to begin.
+Please click on the [**GEE_ML_Workflow**](./GEE_ML_Workflow) folder to begin.
