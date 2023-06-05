@@ -71,9 +71,12 @@ Exit out of Python so we can start loading dependency packages.
 We will now be installing the packages needed to use GEE data, as well as other tools to accomplish data science tasks.
 Enter the following code block in your Anaconda Command Prompt to get the required dependencies with the appropriate versions:
 
+Option #1
+
     pip install pandas==1.4.2 numpy==1.21.5 hydrotools==2.2.2 scipy==1.7.3 datetime matplotlib==3.5.1 dataretrieval streamstats progressbar scikit-learn joblib hydroeval xgboost
 
-
+Option #2 - note, you must be in the correct working directory.
+    pip install -r requirements.txt
 
 Now that we have install all of the necessary dependencies its time to get coding!
 [Chapter 1](./GEE_Workshop_CH1.ipynb)
