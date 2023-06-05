@@ -33,7 +33,7 @@ The GEE_env should show up on the top right of the Jupyter Notebook.
 ![GEE_Notebook_GEE_env](./Images/GEE_Jupyter_Kernel2.JPG)
 
 
-## Loading the required packages
+## Loading the Earth Engine Package
 Python uses packages to support data science tasks, and to ensure the packages work nicely together, is one reason we created our GEE_env.
 There are many ways to install package in your new Python environment and we will be installing them through the command prompt.
 Since the primary package is Earth Engine, we will be installing this package first and use the conda.
@@ -63,7 +63,19 @@ After completion, lets see if we were successful in connecting our GEE_env to Go
     print(ee.Image('USGS/SRTMGL1_003').getInfo())
 
 You should see the metadata for this dataset printed in the prompt.
+Exit out of Python so we can start loading dependency packages.
 
+    exit()
+
+## Loading other python dependencies
+We will now be installing the packages needed to use GEE data, as well as other tools to accomplish data science tasks.
+Enter the following code block in your Anaconda Command Prompt to get the required dependencies with the appropriate versions:
+
+    pip install pandas==1.4.2 numpy==1.21.5 hydrotools==2.2.2 scipy==1.7.3 datetime matplotlib==3.5.1 dataretrieval streamstats progressbar scikit-learn joblib hydroeval xgboost
+
+
+
+Now that we have install all of the necessary dependencies its time to get coding!
 
 
 
