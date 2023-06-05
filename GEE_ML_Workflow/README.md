@@ -31,3 +31,40 @@ Open up the [GEE_Workshop_CH1.ipynb](./GEE_Workshop_CH1.ipynb) file, click the k
 The GEE_env should show up on the top right of the Jupyter Notebook.
 
 ![GEE_Notebook_GEE_env](./Images/GEE_Jupyter_Kernel2.JPG)
+
+## Loading the required packages
+Python uses packages to support data science tasks, and to ensure the packages work nicely together, is one reason we created our GEE_env.
+There are many ways to install package in your new Python environment and we will be installing them through the command prompt.
+Since the primary package is Earth Engine, we will be installing this package first and use the conda.
+We use conda vs. pip install, **Conda** is a cross platform package and environment manager that installs and manages conda packages from the Anaconda repository as well as from the Anaconda Cloud.
+Conda packages are binaries and there is never a need to have compilers available to install them. 
+**Pip** is the Python Packaging Authority’s recommended tool for installing packages from the Python Package Index, PyPI. 
+Pip installs Python software packaged as wheels or source distributions, and may require that the system have compatible compilers, and possibly libraries, installed before invoking pip to succeed.
+Type the below code into your Anaconda Command Prompt.
+
+![EEisntall](./Images/condaEEisntall.JPG)
+
+Enter y when requested.
+Now that you have the Earth Engine package installed in your GEE_env, we need to connect it to your GCloud and authenticate.
+
+![EE_authenticate](./Images/EE_authenticate.JPG)
+
+Running this code block will open a browser window and require your approval to access Earth Engine. 
+After completion, lets see if we were successful in connecting our GEE_env to Google Earth Engine.
+
+    python
+    import ee
+
+    # Initialize the Earth Engine module.
+    ee.Initialize()
+
+    # Print metadata for a DEM dataset.
+    print(ee.Image('USGS/SRTMGL1_003').getInfo())
+
+You should see the metadata for this dataset printed in the prompt.
+
+
+
+
+
+
