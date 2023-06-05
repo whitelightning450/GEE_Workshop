@@ -10,27 +10,28 @@ Lastly, a virtual environment keeps things tidy, makes sure your main Python ins
 Since we will be using Jupyter Notebooks for this exercise, we will use the Anaconda command prompt to create our vitual environment. 
 In the command line type: 
 
-![GEE_venv](./Images/condaEnv.JPG)
+    conda create -n GEE_env python=3.9.12
 
 For this example, we will be using Python version 3.9.12, specify this version when setting up your new virtual environment.
 After Anaconda finished setting up your GEE_env, activate it using the activate function.
 
-![GEE_activate](./Images/condaActivate.JPG)
+    conda activate GEE_env
 
 You should now be working in your new GEE_env within the command prompt. 
 However, we will want to work in this environment within our Jupyter Notebook and need to create a kernel to connect them.
 We begin by installing the **ipykernel** python package:
 
-![GEE_ipykernel](./Images/GEE_ipkernel.JPG)
+    pip install --user ipykernel
 
 With the package installed, we can connect the GEE_env to our Python Notebook
 
-![GEE_ipykernel_install](./Images/GEE_ipkernel_install.JPG)
+    python -m ipykernel install --user --name=GEE_env
 
 Open up the [GEE_Workshop_CH1.ipynb](./GEE_Workshop_CH1.ipynb) file, click the kernal tab on the top toolbar, and select the GEE_env. 
 The GEE_env should show up on the top right of the Jupyter Notebook.
 
 ![GEE_Notebook_GEE_env](./Images/GEE_Jupyter_Kernel2.JPG)
+
 
 ## Loading the required packages
 Python uses packages to support data science tasks, and to ensure the packages work nicely together, is one reason we created our GEE_env.
@@ -42,12 +43,12 @@ Conda packages are binaries and there is never a need to have compilers availabl
 Pip installs Python software packaged as wheels or source distributions, and may require that the system have compatible compilers, and possibly libraries, installed before invoking pip to succeed.
 Type the below code into your Anaconda Command Prompt.
 
-![EEisntall](./Images/condaEEisntall.JPG)
+    conda install -c conda-forge earthengine-api
 
 Enter y when requested.
 Now that you have the Earth Engine package installed in your GEE_env, we need to connect it to your GCloud and authenticate.
 
-![EE_authenticate](./Images/EE_authenticate.JPG)
+    earthengine authenticate
 
 Running this code block will open a browser window and require your approval to access Earth Engine. 
 After completion, lets see if we were successful in connecting our GEE_env to Google Earth Engine.
