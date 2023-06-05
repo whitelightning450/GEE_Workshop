@@ -1,3 +1,4 @@
+pyshp==2.1
 dataretrieval==1.0.4
 hydroeval==0.1.0
 hydrotools==2.2.2
