@@ -31,7 +31,15 @@ def get_USGS_site_info(site_ids):
         NWISinfo = nwis.get_record(sites=site, service='site')
 
         lat, lon = NWISinfo['dec_lat_va'][0],NWISinfo['dec_long_va'][0]
-        ws = streamstats.Watershed(lat=lat, lon=lon)
+        
+        #This sources the prestored data
+        try:
+            ws = streamstats.Watershed(lat=lat, lon=lon)
+        except:
+            print('502 error, StreamStats down, using backup files')
+            ws = pd.read_csv('./Data/StreamStats_All.csv')
+            ws['NWIS_site_id'] = ws['NWIS_site_id'].astype(str)
+            ws = ws[ws.NWIS_site_id == site]
 
         NWISindex = ['NWIS_site_id', 'Lat', 'Long', 'Drainage_area_mi2', 'Mean_Basin_Elev_ft', 'Perc_Forest', 'Perc_Develop',
                      'Perc_Imperv', 'Perc_Herbace', 'Perc_Slop_30', 'Mean_Ann_Precip_in']
@@ -43,6 +51,8 @@ def get_USGS_site_info(site_ids):
             darea = np.nan
         except ValueError:
             darea = np.nan
+        except AttributeError:
+            darea = ws['Drainage_area_mi2'].values[0]
 
         print('Retrieving Mean Catchment Elevation')
         try:
@@ -51,6 +61,8 @@ def get_USGS_site_info(site_ids):
             elev = np.nan
         except ValueError:
             elev = np.nan
+        except AttributeError:
+            elev = ws['Mean_Basin_Elev_ft'].values[0]
 
         print('Retrieving Catchment Land Cover Information')
         try:
@@ -59,6 +71,8 @@ def get_USGS_site_info(site_ids):
             forest = np.nan
         except ValueError:
             forest = np.nan
+        except AttributeError:
+            forest = ws['Perc_Forest'].values[0]
 
         try:
             dev_area = ws.get_characteristic('LC11DEV')['value']
@@ -66,6 +80,8 @@ def get_USGS_site_info(site_ids):
             dev_area = np.nan
         except ValueError:
             dev_area = np.nan
+        except AttributeError:
+            dev_area = ws['Perc_Develop'].values[0]
 
         try:
             imp_area = ws.get_characteristic('LC11IMP')['value']
@@ -73,6 +89,8 @@ def get_USGS_site_info(site_ids):
             imp_area = np.nan
         except ValueError:
             imp_area = np.nan
+        except AttributeError:
+            imp_area = ws['Perc_Imperv'].values[0]
 
         try:
             herb_area = ws.get_characteristic('LU92HRBN')['value']
@@ -80,6 +98,8 @@ def get_USGS_site_info(site_ids):
             herb_area = np.nan
         except ValueError:
             herb_area = np.nan
+        except AttributeError:
+            herb_area = ws['Perc_Herbace'].values[0]
 
         print('Retrieving Catchment Topographic Complexity')
         try:
@@ -88,6 +108,8 @@ def get_USGS_site_info(site_ids):
             perc_slope = np.nan
         except ValueError:
             perc_slope = np.nan
+        except AttributeError:
+            perc_slope = ws['Perc_Slop_30'].values[0]
 
         print('Retrieving Catchment Average Precip')
         try:
@@ -96,6 +118,8 @@ def get_USGS_site_info(site_ids):
             precip = np.nan
         except ValueError:
             precip = np.nan
+        except AttributeError:
+            precip = ws['Mean_Ann_Precip_in'].values[0]
 
 
         NWISvalues = [site,
