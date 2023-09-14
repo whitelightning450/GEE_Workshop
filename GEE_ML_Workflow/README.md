@@ -4,16 +4,16 @@
 It is a best practice to create a virtual environment when starting a new project, as a virtual environment essentially creates an isolated working copy of Python for a particular project. 
 I.e., each environment can have its own dependencies or even its own Python versions.
 Creating a Python virtual environment is useful if you need different versions of Python or packages for different projects.
-Lastly, a virtual environment keeps things tidy, makes sure your main Python installation stays healthy, and supports reproducible and open science.
+Lastly, a virtual environment keeps things tidy, makes sure your main Python installation stays healthy and supports reproducible and open science.
 
 ## Creating your Python-GEE Virtual Environment
-Since we will be using Jupyter Notebooks for this exercise, we will use the Anaconda command prompt to create our vitual environment. 
+Since we will be using Jupyter Notebooks for this exercise, we will use the Anaconda command prompt to create our virtual environment. 
 In the command line type: 
 
     conda create -n GEE_env python=3.9.12
 
 For this example, we will be using Python version 3.9.12, specify this version when setting up your new virtual environment.
-After Anaconda finished setting up your GEE_env, activate it using the activate function.
+After Anaconda finishes setting up your GEE_env, activate it using the activate function.
 
     conda activate GEE_env
 
@@ -27,20 +27,20 @@ With the package installed, we can connect the GEE_env to our Python Notebook
 
     python -m ipykernel install --user --name=GEE_env
 
-Open up the [GEE_Workshop_CH1.ipynb](./GEE_Workshop_CH1.ipynb) file, click the kernal tab on the top toolbar, and select the GEE_env. 
+Open up the [GEE_Workshop_CH1.ipynb](./GEE_Workshop_CH1.ipynb) file, click the kernel tab on the top toolbar, and select the GEE_env. 
 The GEE_env should show up on the top right of the Jupyter Notebook.
 
 ![GEE_Notebook_GEE_env](./Images/GEE_Jupyter_Kernel2.JPG)
 
 
 ## Loading the Earth Engine Package
-Python uses packages to support data science tasks, and to ensure the packages work nicely together, is one reason we created our GEE_env.
-There are many ways to install package in your new Python environment and we will be installing them through the command prompt.
-Since the primary package is Earth Engine, we will be installing this package first and use the conda.
-We use conda vs. pip install, **Conda** is a cross platform package and environment manager that installs and manages conda packages from the Anaconda repository as well as from the Anaconda Cloud.
+Python uses packages to support data science tasks, and ensuring the packages work nicely together, is one reason we created our GEE_env.
+There are many ways to install packages in your new Python environment and we will be installing them through the command prompt.
+Since the primary package is Earth Engine, we will be installing this package first and using the conda.
+We use conda vs. pip install, **Conda** is a cross-platform package and environment manager that installs and manages conda packages from the Anaconda repository as well as from the Anaconda Cloud.
 Conda packages are binaries and there is never a need to have compilers available to install them. 
 **Pip** is the Python Packaging Authority’s recommended tool for installing packages from the Python Package Index, PyPI. 
-Pip installs Python software packaged as wheels or source distributions, and may require that the system have compatible compilers, and possibly libraries, installed before invoking pip to succeed.
+Pip installs Python software packaged as wheels or source distributions and may require that the system have compatible compilers, and possibly libraries, installed before invoking pip to succeed.
 Type the below code into your Anaconda Command Prompt.
 
     conda install -c conda-forge earthengine-api
@@ -51,9 +51,9 @@ Now that you have the Earth Engine package installed in your GEE_env, we need to
     earthengine authenticate
 
 Running this code block will open a browser window and require your approval to access Earth Engine. 
-After completion, lets see if we were successful in connecting our GEE_env to Google Earth Engine.
+After completion, let's see if we were successful in connecting our GEE_env to Google Earth Engine.
 
-    python
+    Python
     import ee
 
     # Initialize the Earth Engine module.
@@ -67,7 +67,7 @@ Exit out of Python so we can start loading dependency packages.
 
     exit()
 
-## Loading other python dependencies
+## Loading other Python dependencies
 We will now be installing the packages needed to use GEE data, as well as other tools to accomplish data science tasks.
 Enter the following code block in your Anaconda Command Prompt to get the required dependencies with the appropriate versions:
 
@@ -79,7 +79,7 @@ Option #2 - note, you must be in the correct working directory.
 
     pip install -r requirements.txt
 
-Now that we have install all of the necessary dependencies its time to get coding!
+Now that we have installed all of the necessary dependencies it's time to get coding!
 [Chapter 1](./GEE_Workshop_CH1.ipynb)
 
 
